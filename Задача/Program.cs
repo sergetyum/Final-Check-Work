@@ -4,7 +4,7 @@
 // При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
 // 1. Приглашение пользователю ввести символы массива.
-Console.Write("Введите символы массива через пробел (используйте буквы, цифры, знаки): ");
+Console.Write("Введите элеметны массива через пробел (используйте буквы, цифры, знаки): ");
 
 // 2. Считываем строку из терминала и получаем из этой строки строчный массив array.
 string[] array = Console.ReadLine().Split(" ");
@@ -12,13 +12,34 @@ string[] array = Console.ReadLine().Split(" ");
 // 3. С помощью метода PrintArray формируем формат вывода массива в терминал.
 void PrintArray(string[] array)
 {
-  Console.Write("[");
-  for (int i = 0; i < array.Length-1; i++)
-  {
-    Console.Write($"\"{array[i]}\", ");
-  }
-  Console.Write($"\"{array[array.Length-1]}\"");
-  Console.Write("]");
+    Console.Write("[");
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write($"\"{array[i]}\", ");
+    }
+    Console.Write($"\"{array[array.Length - 1]}\"");
+    Console.Write("]");
 }
 
-PrintArray (array);
+// 4. Определяем количество элементов исходного массива с количеством символов меньшим, либо равным 3.
+int NumberOfItemsLessThanOrEqualToZero(string[] array)
+{
+    int numberOfElements = 0;
+    foreach (string item in array)
+    {
+        if (item.Length <= 3)
+
+            numberOfElements++;
+    }
+    return numberOfElements;
+}
+
+
+
+
+
+PrintArray(array);
+Console.Write("->");
+NumberOfItemsLessThanOrEqualToZero(array);
+//string[] ArrayResult(arraynew);
+//PrintArray(arraynew);
