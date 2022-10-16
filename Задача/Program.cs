@@ -3,8 +3,9 @@
 // Первоначальный массив можно ввести с клавиатуры, либо задать на старте выполнения алгоритма.
 // При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
+
 // 1. Приглашение пользователю ввести символы массива.
-Console.Write("Введите элеметны массива через пробел (используйте буквы, цифры, знаки): ");
+Console.Write("Введите элементы массива через пробел (используйте буквы, цифры, знаки): ");
 
 // 2. Считываем строку из терминала и получаем из этой строки строчный массив array.
 string[] array = Console.ReadLine().Split(" ");
@@ -27,19 +28,29 @@ int NumberOfItemsLessThanOrEqualToZero(string[] array)
     int numberOfElements = 0;
     foreach (string item in array)
     {
-        if (item.Length <= 3)
-
-            numberOfElements++;
+        if (item.Length <= 3) numberOfElements++;
     }
-    return numberOfElements;
+   return numberOfElements;
 }
 
-
-
-
+// Формируем массив из элементов исходного массива с количеством символов меньше, либо равным 3.
+//void CreateANewArray(string[] array)
+//{
+int lengthNew = NumberOfItemsLessThanOrEqualToZero(array);
+string[] arrayNew = new string[lengthNew];
+int i = 0;
+foreach (string item in array)
+{
+    if (item.Length <= 3) 
+    {
+        arrayNew[i] = item; 
+        i++;
+    }
+}
+//}
 
 PrintArray(array);
 Console.Write("->");
-NumberOfItemsLessThanOrEqualToZero(array);
-//string[] ArrayResult(arraynew);
-//PrintArray(arraynew);
+//NumberOfItemsLessThanOrEqualToZero(array);
+//CreateANewArray(array);
+PrintArray(arrayNew);
