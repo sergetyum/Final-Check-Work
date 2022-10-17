@@ -4,13 +4,15 @@
 // При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
 
-// 1. Приглашение пользователю ввести символы массива.
-Console.Write("Введите элементы массива через пробел (используйте буквы, цифры, знаки): ");
+// 1. Создаем метод FillArray для считывания данных пользователя, объявления и инициализации исходного массива arr.
+string[] FillArray()
+{
+    Console.Write("Введите элементы массива через пробел (используйте буквы, цифры, знаки): ");
+    string[] arr = Console.ReadLine().Split(" ");
+    return arr;
+}
 
-// 2. Считываем строку из терминала и получаем из этой строки строчный массив array.
-string[] array = Console.ReadLine().Split(" ");
-
-// 3. С помощью метода PrintArray формируем формат вывода массива в терминал.
+// 2. Создаем метод PrintArray для формирования формата вывода массива в терминал.
 void PrintArray(string[] array)
 {
     Console.Write("[");
@@ -22,7 +24,7 @@ void PrintArray(string[] array)
     Console.Write("]");
 }
 
-// 4. Определяем количество элементов исходного массива с количеством символов меньшим, либо равным 3.
+// 3. Создаем функцию NumberOfItemsLessThanOrEqualToZero для определения количества элементов в исходном массиве с количеством символов меньшим, либо равным 3.
 int NumberOfItemsLessThanOrEqualToZero(string[] array)
 {
     int numberOfElements = 0;
@@ -30,27 +32,29 @@ int NumberOfItemsLessThanOrEqualToZero(string[] array)
     {
         if (item.Length <= 3) numberOfElements++;
     }
-   return numberOfElements;
+    return numberOfElements;
 }
 
-// Формируем массив из элементов исходного массива с количеством символов меньше, либо равным 3.
-//void CreateANewArray(string[] array)
-//{
-int lengthNew = NumberOfItemsLessThanOrEqualToZero(array);
-string[] arrayNew = new string[lengthNew];
-int i = 0;
-foreach (string item in array)
+// 4. Создаем метод CreateANewArray, который формирует новый массив arrNew из элементов исходного массива arr с количеством символов меньше, либо равным 3.
+string[] CreateANewArray(string[] array)
 {
-    if (item.Length <= 3) 
+    int lengthNew = NumberOfItemsLessThanOrEqualToZero(array);
+    string[] arrNew = new string[lengthNew];
+    int i = 0;
+    foreach (string item in array)
     {
-        arrayNew[i] = item; 
-        i++;
+        if (item.Length <= 3)
+        {
+            arrNew[i] = item;
+            i++;
+        }
     }
+    return arrNew;
 }
-//}
 
-PrintArray(array);
+// 5. Вызываем методы для вывода результатов в терминал.
+string[] arr = FillArray();
+PrintArray(arr);
 Console.Write("->");
-//NumberOfItemsLessThanOrEqualToZero(array);
-//CreateANewArray(array);
-PrintArray(arrayNew);
+string[] arrNew = CreateANewArray(arr);
+PrintArray(arrNew);
