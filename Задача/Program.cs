@@ -15,6 +15,7 @@ string[] FillArray()
 // 2. Создаем метод PrintArray для формирования формата вывода массива в терминал.
 void PrintArray(string[] array)
 {
+    if (array.Length == 0) Console.WriteLine("[]");
     Console.Write("[");
     for (int i = 0; i < array.Length - 1; i++)
     {
