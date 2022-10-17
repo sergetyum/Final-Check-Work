@@ -3,12 +3,23 @@
 // Первоначальный массив можно ввести с клавиатуры, либо задать на старте выполнения алгоритма.
 // При решении не рекомендуется пользоваться коллекциями, лучше обойтись исключительно массивами.
 
+// Примеры:
+// ["hello", "2", "world", ":-)"] -> ["2", ":-)"]
+// ["1234", "1567", "-2", "computer science"] -> ["-2"]
+// ["Russia", "Denmark", "Kazan"] -> []
+
 
 // 1. Создаем метод FillArray для считывания данных пользователя, объявления и инициализации исходного массива arr.
 string[] FillArray()
 {
-    Console.Write("Введите элементы массива через пробел (используйте буквы, цифры, знаки): ");
-    string[] arr = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+    Console.WriteLine("Задайте размерность массива:");
+    int length = int.Parse(Console.ReadLine());
+    Console.WriteLine("Введите через Enter элементы массива различной длины (используйте буквы, цифры, знаки): ");
+    string[] arr = new string[length];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = Console.ReadLine();
+    }
     return arr;
 }
 
@@ -53,7 +64,7 @@ string[] CreateANewArray(string[] array)
     return arrNew;
 }
 
-// 5. Вызываем методы для сборки и вывода результатов в терминал.
+// 5. Вызываем методы для сборки кода, выводим результат в терминал.
 string[] arr = FillArray();
 PrintArray(arr);
 Console.Write(" -> ");
