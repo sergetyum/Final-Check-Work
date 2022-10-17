@@ -8,7 +8,7 @@
 string[] FillArray()
 {
     Console.Write("Введите элементы массива через пробел (используйте буквы, цифры, знаки): ");
-    string[] arr = Console.ReadLine().Split(" ");
+    string[] arr = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
     return arr;
 }
 
@@ -24,7 +24,7 @@ void PrintArray(string[] array)
     Console.Write("]");
 }
 
-// 3. Создаем функцию NumberOfItemsLessThanOrEqualToZero для определения количества элементов в исходном массиве с количеством символов меньшим, либо равным 3.
+// 3. Создаем функцию NumberOfItemsLessThanOrEqualToZero для определения количества элементов в массиве с количеством символов меньшим, либо равным 3.
 int NumberOfItemsLessThanOrEqualToZero(string[] array)
 {
     int numberOfElements = 0;
@@ -52,9 +52,9 @@ string[] CreateANewArray(string[] array)
     return arrNew;
 }
 
-// 5. Вызываем методы для вывода результатов в терминал.
+// 5. Вызываем методы для сборки и вывода результатов в терминал.
 string[] arr = FillArray();
 PrintArray(arr);
-Console.Write("->");
+Console.Write(" -> ");
 string[] arrNew = CreateANewArray(arr);
 PrintArray(arrNew);
