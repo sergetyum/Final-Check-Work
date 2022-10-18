@@ -14,7 +14,7 @@ string[] FillArray()
 {
     Console.WriteLine("Задайте размерность массива:");
     int length = int.Parse(Console.ReadLine());
-    Console.WriteLine("Введите через Enter элементы массива различной длины (используйте буквы, цифры, знаки): ");
+    Console.WriteLine("Введите через Enter элементы массива различной длины (используйте буквы, цифры, знаки):");
     string[] arr = new string[length];
     for (int i = 0; i < arr.Length; i++)
     {
